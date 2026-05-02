@@ -5,8 +5,8 @@ import { tokens, vars } from "@/styles/vars.css";
 export const overlay = style({
   position: "fixed",
   inset: 0,
-  backgroundColor: "rgba(0, 0, 0, 0.45)",
-  backdropFilter: "blur(2px)",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  backdropFilter: "blur(4px)",
   zIndex: 50,
   display: "flex",
   alignItems: "flex-end",
@@ -29,10 +29,10 @@ export const overlay = style({
 
 /* ─── Sheet panel ─── */
 export const sheet = style({
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   border: `1px solid ${vars.color.border.neutral}`,
   borderTop: "none",
-  borderRadius: `${tokens.borderRadius.lg} ${tokens.borderRadius.lg} 0 0`,
+  borderRadius: `${tokens.borderRadius.xl} ${tokens.borderRadius.xl} 0 0`,
   boxShadow: vars.color.shadow.xl,
   width: "100%",
   outline: "none",
@@ -49,6 +49,11 @@ export const sheet = style({
       opacity: 0,
     },
   },
+  "@media": {
+    "(prefers-reduced-motion: reduce)": {
+      transition: "none",
+    },
+  },
 });
 
 /* ─── Size variants ─── */
@@ -61,11 +66,11 @@ export const sheetSizes = styleVariants({
 
 /* ─── Handle (drag indicator) ─── */
 export const handle = style({
-  width: "2.5rem",
+  width: "3rem",
   height: "0.25rem",
   borderRadius: tokens.borderRadius.full,
   backgroundColor: vars.color.border.neutral,
-  margin: `${tokens.spacing[3]} auto`,
+  margin: `${tokens.spacing[4]} auto ${tokens.spacing[2]}`,
   flexShrink: 0,
 });
 
@@ -75,7 +80,7 @@ export const sheetHeader = style({
   alignItems: "center",
   justifyContent: "space-between",
   paddingInline: tokens.spacing[6],
-  paddingBottom: tokens.spacing[3],
+  paddingBottom: tokens.spacing[4],
   borderBottom: `1px solid ${vars.color.border.neutral}`,
   flexShrink: 0,
 });
@@ -92,9 +97,9 @@ export const sheetCloseButton = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "2rem",
-  height: "2rem",
-  borderRadius: tokens.borderRadius.md,
+  width: "2.25rem",
+  height: "2.25rem",
+  borderRadius: tokens.borderRadius.lg,
   border: "none",
   background: "transparent",
   color: vars.color.text.secondary,
@@ -129,7 +134,7 @@ export const sheetFooter = style({
   justifyContent: "flex-end",
   gap: tokens.spacing[3],
   paddingInline: tokens.spacing[6],
-  paddingBlock: tokens.spacing[4],
+  paddingBlock: tokens.spacing[5],
   borderTop: `1px solid ${vars.color.border.neutral}`,
   flexShrink: 0,
 });

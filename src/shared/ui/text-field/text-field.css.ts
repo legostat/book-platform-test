@@ -12,6 +12,7 @@ export const label = style({
   fontSize: tokens.fontSize.sm,
   fontWeight: "500",
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
   selectors: {
     "[data-required] &::after": {
       content: '" *"',
@@ -25,9 +26,9 @@ export const inputWrapper = style({
   display: "flex",
   alignItems: "center",
   width: "100%",
-  borderRadius: tokens.borderRadius.md,
+  borderRadius: tokens.borderRadius.lg,
   border: `1px solid ${vars.color.border.neutral}`,
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   transition: "border-color 0.15s ease, box-shadow 0.15s ease",
   selectors: {
     "[data-focus-within] &": {
@@ -52,8 +53,8 @@ export const input = style({
   color: vars.color.text.primary,
   fontSize: tokens.fontSize.base,
   lineHeight: tokens.lineHeight.normal,
-  paddingBlock: tokens.spacing[2],
-  paddingInline: tokens.spacing[3],
+  paddingBlock: tokens.spacing[3],
+  paddingInline: tokens.spacing[4],
   width: "100%",
   fontFamily: vars.font.sans,
   "::placeholder": {

@@ -13,6 +13,7 @@ export const lightThemeClass = createTheme(vars, {
       primary: "#FDFBF7",
       secondary: "#F4F0EA",
       tertiary: "#EBE5DC",
+      elevated: "#FFFFFF",
     },
     text: {
       primary: "#2C2A26",
@@ -31,10 +32,10 @@ export const lightThemeClass = createTheme(vars, {
       info: "#0288D1",
     },
     shadow: {
-      sm: "0 1px 2px rgba(44, 42, 38, 0.05)",
-      md: "0 4px 6px -1px rgba(44, 42, 38, 0.08), 0 2px 4px -1px rgba(44, 42, 38, 0.04)",
-      lg: "0 10px 15px -3px rgba(44, 42, 38, 0.08), 0 4px 6px -2px rgba(44, 42, 38, 0.04)",
-      xl: "0 20px 25px -5px rgba(44, 42, 38, 0.08), 0 10px 10px -5px rgba(44, 42, 38, 0.04)",
+      sm: "0 1px 2px rgba(44, 42, 38, 0.06)",
+      md: "0 4px 8px -1px rgba(44, 42, 38, 0.1), 0 2px 4px -1px rgba(44, 42, 38, 0.06)",
+      lg: "0 12px 20px -4px rgba(44, 42, 38, 0.12), 0 4px 8px -2px rgba(44, 42, 38, 0.06)",
+      xl: "0 24px 32px -8px rgba(44, 42, 38, 0.14), 0 12px 16px -4px rgba(44, 42, 38, 0.08)",
       focus: "0 0 0 3px rgba(31, 89, 110, 0.3)",
     },
   },

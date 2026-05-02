@@ -4,7 +4,7 @@ import { tokens, vars } from "@/styles/vars.css";
 export const switchRoot = style({
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing[2],
+  gap: tokens.spacing[3],
   cursor: "pointer",
   fontSize: tokens.fontSize.sm,
   color: vars.color.text.primary,
@@ -20,15 +20,17 @@ export const switchRoot = style({
 
 export const track = style({
   position: "relative",
-  width: "2.25rem",
-  height: "1.25rem",
+  width: "2.5rem",
+  height: "1.5rem",
   flexShrink: 0,
   borderRadius: tokens.borderRadius.full,
   backgroundColor: vars.color.border.neutral,
+  boxShadow: `inset 0 1px 3px rgba(0,0,0,0.1)`,
   transition: "background-color 0.2s ease, box-shadow 0.15s ease",
   selectors: {
     "[data-selected] &": {
       backgroundColor: vars.color.brand.primary,
+      boxShadow: `inset 0 1px 3px rgba(0,0,0,0.15)`,
     },
     "[data-focus-visible] &": {
       boxShadow: vars.color.shadow.focus,
@@ -57,10 +59,10 @@ export const track = style({
 
 export const thumb = style({
   position: "absolute",
-  top: "0.125rem",
-  left: "0.125rem",
-  width: "1rem",
-  height: "1rem",
+  top: "0.1875rem",
+  left: "0.1875rem",
+  width: "1.125rem",
+  height: "1.125rem",
   borderRadius: tokens.borderRadius.full,
   backgroundColor: vars.color.text.inverse,
   boxShadow: vars.color.shadow.sm,

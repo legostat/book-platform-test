@@ -20,7 +20,7 @@ function SamplePopover(props: { showArrow?: boolean; placement?: string }) {
         showArrow={props.showArrow}
         placement={props.placement as never}
       >
-        <div style={{ padding: "0.5rem", maxWidth: "14rem" }}>
+        <div style={{ maxWidth: "14rem" }}>
           <strong style={{ display: "block", marginBottom: "0.25rem" }}>
             Pro tip
           </strong>
@@ -47,6 +47,25 @@ export const PlacementBottom: Story = {
 
 export const PlacementRight: Story = {
   render: () => <SamplePopover placement="right" />,
+};
+
+export const RichContent: Story = {
+  render: () => (
+    <PopoverTrigger>
+      <Button variant="outline">Book info</Button>
+      <Popover>
+        <div style={{ maxWidth: "16rem" }}>
+          <div style={{ fontWeight: 600, marginBottom: "0.5rem" }}>The Great Gatsby</div>
+          <div style={{ fontSize: "0.875rem", opacity: 0.7, marginBottom: "0.5rem" }}>
+            F. Scott Fitzgerald · 1925
+          </div>
+          <p style={{ fontSize: "0.875rem", margin: 0, lineHeight: 1.5 }}>
+            A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.
+          </p>
+        </div>
+      </Popover>
+    </PopoverTrigger>
+  ),
 };
 
 export const OpenPopover: Story = {

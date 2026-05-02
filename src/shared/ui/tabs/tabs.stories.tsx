@@ -50,6 +50,36 @@ export const Default: Story = {
   render: () => <SampleTabs />,
 };
 
+export const ManyTabs: Story = {
+  name: "Many tabs (pill bar)",
+  render: () => (
+    <Tabs defaultSelectedKey="overview">
+      <TabList aria-label="Book sections">
+        <Tab id="overview">Overview</Tab>
+        <Tab id="chapters">Chapters</Tab>
+        <Tab id="reviews">Reviews</Tab>
+        <Tab id="author">Author</Tab>
+        <Tab id="similar">Similar books</Tab>
+      </TabList>
+      <TabPanel id="overview">
+        <p>Overview content showing the pill-bar tab design.</p>
+      </TabPanel>
+      <TabPanel id="chapters">
+        <p>Chapter listing.</p>
+      </TabPanel>
+      <TabPanel id="reviews">
+        <p>Reader reviews and ratings.</p>
+      </TabPanel>
+      <TabPanel id="author">
+        <p>Author biography and bibliography.</p>
+      </TabPanel>
+      <TabPanel id="similar">
+        <p>Books similar to this one.</p>
+      </TabPanel>
+    </Tabs>
+  ),
+};
+
 export const Vertical: Story = {
   render: () => (
     <div style={{ height: "12rem" }}>

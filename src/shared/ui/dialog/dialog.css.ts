@@ -5,8 +5,8 @@ import { tokens, vars } from "@/styles/vars.css";
 export const overlay = style({
   position: "fixed",
   inset: 0,
-  backgroundColor: "rgba(0, 0, 0, 0.45)",
-  backdropFilter: "blur(2px)",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  backdropFilter: "blur(4px)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -29,23 +29,28 @@ export const overlay = style({
 
 /* ─── Dialog panel ─── */
 export const dialog = style({
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   border: `1px solid ${vars.color.border.neutral}`,
-  borderRadius: tokens.borderRadius.lg,
+  borderRadius: tokens.borderRadius.xl,
   boxShadow: vars.color.shadow.xl,
-  padding: tokens.spacing[6],
+  padding: tokens.spacing[8],
   width: "100%",
   maxWidth: "28rem",
   outline: "none",
-  transition: "transform 0.2s ease, opacity 0.2s ease",
+  transition: "transform 0.25s ease, opacity 0.25s ease",
   selectors: {
     "[data-entering] &": {
-      transform: "scale(0.96)",
+      transform: "scale(0.95) translateY(8px)",
       opacity: 0,
     },
     "[data-exiting] &": {
-      transform: "scale(0.96)",
+      transform: "scale(0.95) translateY(8px)",
       opacity: 0,
+    },
+  },
+  "@media": {
+    "(prefers-reduced-motion: reduce)": {
+      transition: "none",
     },
   },
 });
@@ -54,7 +59,7 @@ export const dialogHeader = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  marginBottom: tokens.spacing[4],
+  marginBottom: tokens.spacing[5],
 });
 
 export const dialogTitle = style({
@@ -70,9 +75,9 @@ export const closeButton = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "2rem",
-  height: "2rem",
-  borderRadius: tokens.borderRadius.md,
+  width: "2.25rem",
+  height: "2.25rem",
+  borderRadius: tokens.borderRadius.lg,
   border: "none",
   background: "transparent",
   color: vars.color.text.secondary,
@@ -101,5 +106,7 @@ export const dialogFooter = style({
   alignItems: "center",
   justifyContent: "flex-end",
   gap: tokens.spacing[3],
-  marginTop: tokens.spacing[6],
+  marginTop: tokens.spacing[8],
+  paddingTop: tokens.spacing[5],
+  borderTop: `1px solid ${vars.color.border.neutral}`,
 });

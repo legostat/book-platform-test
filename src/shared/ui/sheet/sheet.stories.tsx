@@ -26,7 +26,7 @@ function SampleSheet(props: {
         isDismissable={props.isDismissable ?? true}
         footer={
           <>
-            <Button variant="secondary">Cancel</Button>
+            <Button variant="outline">Cancel</Button>
             <Button variant="primary">Save</Button>
           </>
         }
@@ -50,6 +50,10 @@ export const Small: Story = {
 
 export const Large: Story = {
   render: () => <SampleSheet size="lg" title="Book details" />,
+};
+
+export const FullScreen: Story = {
+  render: () => <SampleSheet size="full" title="Full screen sheet" />,
 };
 
 export const NonDismissable: Story = {

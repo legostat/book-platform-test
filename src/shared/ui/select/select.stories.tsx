@@ -68,6 +68,30 @@ export const Disabled: Story = {
   render: () => <GenreSelect isDisabled />,
 };
 
+export const LongList: Story = {
+  render: () => (
+    <Select
+      label="Country"
+      placeholder="Select a country…"
+      items={[
+        { id: "ua", name: "Ukraine" },
+        { id: "us", name: "United States" },
+        { id: "gb", name: "United Kingdom" },
+        { id: "de", name: "Germany" },
+        { id: "fr", name: "France" },
+        { id: "jp", name: "Japan" },
+        { id: "kr", name: "South Korea" },
+        { id: "pl", name: "Poland" },
+        { id: "it", name: "Italy" },
+        { id: "es", name: "Spain" },
+      ]}
+      style={{ maxWidth: "20rem" }}
+    >
+      {(item) => <SelectItem id={item.id}>{item.name}</SelectItem>}
+    </Select>
+  ),
+};
+
 export const OpenAndSelect: Story = {
   render: () => <GenreSelect />,
   play: async ({ canvasElement }) => {

@@ -4,7 +4,7 @@ import { tokens, vars } from "@/styles/vars.css";
 export const checkboxRoot = style({
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing[2],
+  gap: tokens.spacing[3],
   cursor: "pointer",
   fontSize: tokens.fontSize.sm,
   color: vars.color.text.primary,
@@ -19,20 +19,21 @@ export const checkboxRoot = style({
 });
 
 export const indicator = style({
-  width: "1.125rem",
-  height: "1.125rem",
+  width: "1.25rem",
+  height: "1.25rem",
   flexShrink: 0,
-  borderRadius: tokens.borderRadius.sm,
+  borderRadius: tokens.borderRadius.md,
   border: `2px solid ${vars.color.border.neutral}`,
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  transition: "background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease",
+  transition: "background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease",
   selectors: {
     "[data-selected] &, [data-indeterminate] &": {
       backgroundColor: vars.color.brand.primary,
       borderColor: vars.color.brand.primary,
+      transform: "scale(1.05)",
     },
     "[data-hovered] &": {
       borderColor: vars.color.border.focus,
@@ -65,10 +66,11 @@ export const indicator = style({
 });
 
 export const checkIcon = style({
-  width: "0.7rem",
-  height: "0.7rem",
+  width: "0.75rem",
+  height: "0.75rem",
   color: vars.color.text.inverse,
   opacity: 0,
+  transition: "opacity 0.1s ease",
   selectors: {
     "[data-selected] &": {
       opacity: 1,
@@ -82,6 +84,7 @@ export const dashIcon = style({
   backgroundColor: vars.color.text.inverse,
   borderRadius: "2px",
   opacity: 0,
+  transition: "opacity 0.1s ease",
   selectors: {
     "[data-indeterminate] &": {
       opacity: 1,

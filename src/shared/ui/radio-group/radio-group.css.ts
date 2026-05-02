@@ -12,18 +12,19 @@ export const radioGroupLabel = style({
   fontSize: tokens.fontSize.sm,
   fontWeight: "500",
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
   marginBottom: tokens.spacing[1],
 });
 
 export const radioItems = style({
   display: "flex",
   flexDirection: "column",
-  gap: tokens.spacing[2],
+  gap: tokens.spacing[3],
   selectors: {
     "[data-orientation='horizontal'] &": {
       flexDirection: "row",
       flexWrap: "wrap",
-      gap: tokens.spacing[4],
+      gap: tokens.spacing[5],
     },
   },
 });
@@ -32,7 +33,7 @@ export const radioItems = style({
 export const radio = style({
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing[2],
+  gap: tokens.spacing[3],
   cursor: "pointer",
   fontSize: tokens.fontSize.sm,
   color: vars.color.text.primary,
@@ -49,16 +50,16 @@ export const radio = style({
 export const radioIndicator = style({
   position: "relative",
   flexShrink: 0,
-  width: "1.125rem",
-  height: "1.125rem",
+  width: "1.25rem",
+  height: "1.25rem",
   borderRadius: tokens.borderRadius.full,
   border: `2px solid ${vars.color.border.neutral}`,
-  backgroundColor: vars.color.background.primary,
-  transition: "border-color 0.15s ease, box-shadow 0.15s ease",
+  backgroundColor: vars.color.background.elevated,
+  transition: "border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease",
   "::after": {
     content: '""',
     position: "absolute",
-    inset: "0.2rem",
+    inset: "0.22rem",
     borderRadius: tokens.borderRadius.full,
     backgroundColor: vars.color.text.inverse,
     transform: "scale(0)",
@@ -110,9 +111,11 @@ export const radioIndicator = style({
 export const radioGroupDescription = style({
   fontSize: tokens.fontSize.xs,
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
 });
 
 export const radioGroupError = style({
   fontSize: tokens.fontSize.xs,
   color: vars.color.status.error,
+  lineHeight: tokens.lineHeight.normal,
 });

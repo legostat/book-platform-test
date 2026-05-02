@@ -18,10 +18,11 @@ export const disclosureButton = style({
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
-  paddingBlock: tokens.spacing[4],
-  paddingInline: 0,
+  paddingBlock: tokens.spacing[5],
+  paddingInline: tokens.spacing[2],
   border: "none",
   background: "transparent",
+  borderRadius: tokens.borderRadius.md,
   fontFamily: vars.font.sans,
   fontSize: tokens.fontSize.base,
   fontWeight: "600",
@@ -31,14 +32,14 @@ export const disclosureButton = style({
   textAlign: "left",
   gap: tokens.spacing[3],
   WebkitTapHighlightColor: "transparent",
-  transition: "color 0.15s ease",
+  transition: "color 0.15s ease, background-color 0.15s ease",
   selectors: {
     "&[data-hovered]": {
       color: vars.color.brand.primary,
+      backgroundColor: vars.color.background.secondary,
     },
     "&[data-focus-visible]": {
       boxShadow: vars.color.shadow.focus,
-      borderRadius: tokens.borderRadius.sm,
     },
     "&[data-disabled]": {
       opacity: 0.45,
@@ -89,7 +90,8 @@ export const disclosurePanel = style({
 });
 
 export const disclosurePanelInner = style({
-  paddingBottom: tokens.spacing[4],
+  paddingBottom: tokens.spacing[5],
+  paddingInline: tokens.spacing[2],
   fontSize: tokens.fontSize.base,
   color: vars.color.text.secondary,
   lineHeight: tokens.lineHeight.relaxed,

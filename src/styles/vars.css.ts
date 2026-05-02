@@ -24,6 +24,7 @@ export const tokens = createGlobalTheme(":root", {
     sm: "0.125rem",
     md: "0.375rem",
     lg: "0.5rem",
+    xl: "0.75rem",
     full: "9999px",
   },
   spacing: {
@@ -31,9 +32,12 @@ export const tokens = createGlobalTheme(":root", {
     2: "0.5rem",
     3: "0.75rem",
     4: "1rem",
+    5: "1.25rem",
     6: "1.5rem",
     8: "2rem",
+    10: "2.5rem",
     12: "3rem",
+    16: "4rem",
   },
 });
 
@@ -49,6 +53,7 @@ export const vars = createThemeContract({
       primary: null,
       secondary: null,
       tertiary: null,
+      elevated: null,
     },
     text: {
       primary: null,

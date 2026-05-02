@@ -3,15 +3,16 @@ import { tokens, vars } from "@/styles/vars.css";
 
 /* ─── Popover panel ─── */
 export const popover = style({
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   border: `1px solid ${vars.color.border.neutral}`,
-  borderRadius: tokens.borderRadius.lg,
-  boxShadow: vars.color.shadow.lg,
-  padding: tokens.spacing[2],
+  borderRadius: tokens.borderRadius.xl,
+  boxShadow: vars.color.shadow.xl,
+  padding: tokens.spacing[3],
   outline: "none",
   fontSize: tokens.fontSize.sm,
   color: vars.color.text.primary,
-  transition: "transform 0.15s ease, opacity 0.15s ease",
+  backdropFilter: "blur(8px)",
+  transition: "transform 0.2s ease, opacity 0.2s ease",
   selectors: {
     "&[data-entering]": {
       opacity: 0,
@@ -22,16 +23,16 @@ export const popover = style({
       transform: "var(--origin)",
     },
     "&[data-placement='top']": {
-      vars: { "--origin": "translateY(6px)" },
+      vars: { "--origin": "translateY(6px) scale(0.98)" },
     },
     "&[data-placement='bottom']": {
-      vars: { "--origin": "translateY(-6px)" },
+      vars: { "--origin": "translateY(-6px) scale(0.98)" },
     },
     "&[data-placement='left']": {
-      vars: { "--origin": "translateX(6px)" },
+      vars: { "--origin": "translateX(6px) scale(0.98)" },
     },
     "&[data-placement='right']": {
-      vars: { "--origin": "translateX(-6px)" },
+      vars: { "--origin": "translateX(-6px) scale(0.98)" },
     },
   },
   "@media": {
@@ -44,7 +45,7 @@ export const popover = style({
 /* ─── OverlayArrow svg ─── */
 export const overlayArrow = style({
   display: "block",
-  fill: vars.color.background.primary,
+  fill: vars.color.background.elevated,
   stroke: vars.color.border.neutral,
   paintOrder: "stroke",
   strokeWidth: "2px",

@@ -13,6 +13,7 @@ export const darkThemeClass = createTheme(vars, {
       primary: "#161618",
       secondary: "#212124",
       tertiary: "#2B2B2F",
+      elevated: "#1E1E22",
     },
     text: {
       primary: "#EAE6DF",
@@ -31,10 +32,10 @@ export const darkThemeClass = createTheme(vars, {
       info: "#29B6F6",
     },
     shadow: {
-      sm: "0 1px 2px rgba(0, 0, 0, 0.4)",
-      md: "0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)",
-      lg: "0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4)",
-      xl: "0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4)",
+      sm: "0 1px 2px rgba(0, 0, 0, 0.5)",
+      md: "0 4px 8px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.4)",
+      lg: "0 12px 20px -4px rgba(0, 0, 0, 0.7), 0 4px 8px -2px rgba(0, 0, 0, 0.5)",
+      xl: "0 24px 32px -8px rgba(0, 0, 0, 0.7), 0 12px 16px -4px rgba(0, 0, 0, 0.5)",
       focus: "0 0 0 3px rgba(82, 174, 207, 0.4)",
     },
   },

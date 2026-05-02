@@ -14,7 +14,6 @@ type Story = StoryObj;
 
 function SampleDialog(props: {
   title?: string;
-  size?: string;
   isDismissable?: boolean;
 }) {
   return (
@@ -25,7 +24,7 @@ function SampleDialog(props: {
         isDismissable={props.isDismissable ?? true}
         footer={
           <>
-            <Button variant="secondary">Cancel</Button>
+            <Button variant="outline">Cancel</Button>
             <Button variant="primary">Confirm</Button>
           </>
         }
@@ -46,6 +45,25 @@ export const NonDismissable: Story = {
       title="Required action"
       isDismissable={false}
     />
+  ),
+};
+
+export const DestructiveAction: Story = {
+  render: () => (
+    <DialogTrigger>
+      <Button variant="destructive">Delete book</Button>
+      <Dialog
+        title="Delete book?"
+        footer={
+          <>
+            <Button variant="outline">Keep book</Button>
+            <Button variant="destructive">Delete permanently</Button>
+          </>
+        }
+      >
+        This will permanently remove the book and all associated reading progress. This action cannot be undone.
+      </Dialog>
+    </DialogTrigger>
   ),
 };
 

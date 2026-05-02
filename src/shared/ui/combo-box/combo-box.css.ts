@@ -13,6 +13,7 @@ export const comboBoxLabel = style({
   fontSize: tokens.fontSize.sm,
   fontWeight: "500",
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
 });
 
 /* ─── Input group ─── */
@@ -21,8 +22,8 @@ export const fieldGroup = style({
   alignItems: "center",
   width: "100%",
   border: `1px solid ${vars.color.border.neutral}`,
-  borderRadius: tokens.borderRadius.md,
-  backgroundColor: vars.color.background.primary,
+  borderRadius: tokens.borderRadius.lg,
+  backgroundColor: vars.color.background.elevated,
   overflow: "hidden",
   transition: "border-color 0.15s ease, box-shadow 0.15s ease",
   selectors: {
@@ -47,8 +48,8 @@ export const comboInput = style({
   color: vars.color.text.primary,
   fontSize: tokens.fontSize.base,
   fontFamily: vars.font.sans,
-  paddingBlock: tokens.spacing[2],
-  paddingInline: tokens.spacing[3],
+  paddingBlock: tokens.spacing[3],
+  paddingInline: tokens.spacing[4],
   "::placeholder": {
     color: vars.color.text.placeholder,
   },
@@ -58,12 +59,13 @@ export const comboTrigger = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: tokens.spacing[2],
+  padding: tokens.spacing[3],
   border: "none",
   background: "transparent",
   color: vars.color.text.secondary,
   cursor: "pointer",
   outline: "none",
+  borderRadius: `0 ${tokens.borderRadius.lg} ${tokens.borderRadius.lg} 0`,
   transition: "color 0.15s ease, background-color 0.15s ease",
   selectors: {
     "&[data-hovered]": {
@@ -76,26 +78,32 @@ export const comboTrigger = style({
   },
 });
 
-/* ─── Shared with Select ─── */
+/* ─── Popover dropdown ─── */
 export const comboPopover = style({
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   border: `1px solid ${vars.color.border.neutral}`,
-  borderRadius: tokens.borderRadius.lg,
-  boxShadow: vars.color.shadow.lg,
-  padding: tokens.spacing[1],
+  borderRadius: tokens.borderRadius.xl,
+  boxShadow: vars.color.shadow.xl,
+  padding: tokens.spacing[2],
   outline: "none",
   width: "var(--trigger-width)",
   maxHeight: "16rem",
   overflow: "hidden",
-  transition: "opacity 0.15s ease, transform 0.15s ease",
+  backdropFilter: "blur(12px)",
+  transition: "opacity 0.2s ease, transform 0.2s ease",
   selectors: {
     "&[data-entering]": {
       opacity: 0,
-      transform: "translateY(-4px)",
+      transform: "translateY(-6px) scale(0.98)",
     },
     "&[data-exiting]": {
       opacity: 0,
-      transform: "translateY(-4px)",
+      transform: "translateY(-6px) scale(0.98)",
+    },
+  },
+  "@media": {
+    "(prefers-reduced-motion: reduce)": {
+      transition: "none",
     },
   },
 });
@@ -104,6 +112,9 @@ export const comboListBox = style({
   outline: "none",
   overflowY: "auto",
   maxHeight: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: tokens.spacing[1],
 });
 
 export const comboItem = style({
@@ -123,6 +134,7 @@ export const comboItem = style({
     },
     "&[data-focus-visible]": {
       backgroundColor: vars.color.background.secondary,
+      boxShadow: `inset 0 0 0 2px ${vars.color.border.focus}`,
     },
     "&[data-selected]": {
       backgroundColor: `color-mix(in srgb, ${vars.color.brand.primary} 12%, transparent)`,
@@ -138,9 +150,11 @@ export const comboItem = style({
 export const comboDescription = style({
   fontSize: tokens.fontSize.xs,
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
 });
 
 export const comboError = style({
   fontSize: tokens.fontSize.xs,
   color: vars.color.status.error,
+  lineHeight: tokens.lineHeight.normal,
 });

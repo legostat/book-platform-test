@@ -13,6 +13,7 @@ export const selectLabel = style({
   fontSize: tokens.fontSize.sm,
   fontWeight: "500",
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
 });
 
 /* ─── Trigger button ─── */
@@ -22,11 +23,11 @@ export const trigger = style({
   justifyContent: "space-between",
   gap: tokens.spacing[2],
   width: "100%",
-  paddingBlock: tokens.spacing[2],
-  paddingInline: tokens.spacing[3],
+  paddingBlock: tokens.spacing[3],
+  paddingInline: tokens.spacing[4],
   border: `1px solid ${vars.color.border.neutral}`,
-  borderRadius: tokens.borderRadius.md,
-  backgroundColor: vars.color.background.primary,
+  borderRadius: tokens.borderRadius.lg,
+  backgroundColor: vars.color.background.elevated,
   color: vars.color.text.primary,
   fontSize: tokens.fontSize.base,
   fontFamily: vars.font.sans,
@@ -56,7 +57,7 @@ export const chevron = style({
   width: "1rem",
   height: "1rem",
   color: vars.color.text.secondary,
-  transition: "transform 0.15s ease",
+  transition: "transform 0.2s ease",
   selectors: {
     "[data-open] &": {
       transform: "rotate(180deg)",
@@ -66,22 +67,28 @@ export const chevron = style({
 
 /* ─── Popover ─── */
 export const popover = style({
-  backgroundColor: vars.color.background.primary,
+  backgroundColor: vars.color.background.elevated,
   border: `1px solid ${vars.color.border.neutral}`,
-  borderRadius: tokens.borderRadius.lg,
-  boxShadow: vars.color.shadow.lg,
-  padding: tokens.spacing[1],
+  borderRadius: tokens.borderRadius.xl,
+  boxShadow: vars.color.shadow.xl,
+  padding: tokens.spacing[2],
   outline: "none",
   minWidth: "var(--trigger-width)",
-  transition: "opacity 0.15s ease, transform 0.15s ease",
+  backdropFilter: "blur(12px)",
+  transition: "opacity 0.2s ease, transform 0.2s ease",
   selectors: {
     "&[data-entering]": {
       opacity: 0,
-      transform: "translateY(-4px)",
+      transform: "translateY(-6px) scale(0.98)",
     },
     "&[data-exiting]": {
       opacity: 0,
-      transform: "translateY(-4px)",
+      transform: "translateY(-6px) scale(0.98)",
+    },
+  },
+  "@media": {
+    "(prefers-reduced-motion: reduce)": {
+      transition: "none",
     },
   },
 });
@@ -91,6 +98,9 @@ export const listBox = style({
   outline: "none",
   maxHeight: "16rem",
   overflowY: "auto",
+  display: "flex",
+  flexDirection: "column",
+  gap: tokens.spacing[1],
 });
 
 export const listBoxItem = style({
@@ -128,9 +138,11 @@ export const listBoxItem = style({
 export const selectDescription = style({
   fontSize: tokens.fontSize.xs,
   color: vars.color.text.secondary,
+  lineHeight: tokens.lineHeight.normal,
 });
 
 export const selectError = style({
   fontSize: tokens.fontSize.xs,
   color: vars.color.status.error,
+  lineHeight: tokens.lineHeight.normal,
 });
