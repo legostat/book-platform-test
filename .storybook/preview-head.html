@@ -1,0 +1,39 @@
+<!--
+  Storybook preview-head.html
+  Injected into the <head> of every story iframe.
+
+  We load our Google Fonts here instead of using next/font/google,
+  because next/font requires the Next.js runtime which is not present in Storybook.
+  The @font-face declarations define the same CSS custom properties
+  (--font-sans, --font-serif) that our Vanilla Extract theme contract references.
+-->
+
+<!-- Preconnect for faster Google Fonts loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Ysabeau (sans) + Playfair Display (serif) — mirrors next/font subsets -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  /*
+    Set the same CSS variable names that next/font assigns at runtime
+    so that Vanilla Extract theme values like:
+      font: { sans: "var(--font-sans, sans-serif)" }
+    resolve correctly in Storybook.
+  */
+  :root {
+    --font-sans: "Ysabeau", sans-serif;
+    --font-serif: "Playfair Display", serif;
+  }
+
+  /* Box-sizing reset (mirrors global.css.ts) */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+</style>
