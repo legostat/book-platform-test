@@ -1,14 +1,20 @@
 import { globalStyle } from "@vanilla-extract/css";
 import { vars } from "./vars.css";
 
-globalStyle("*, *::before, *::after", {
+/* globalStyle("*, *::before, *::after", {
   boxSizing: "border-box",
-  margin: 0,
-  padding: 0,
+}); */
+
+globalStyle("html", {
+  scrollbarGutter: "stable",
+  interpolateSize: "allow-keywords",
 });
 
-globalStyle("html, body", {
-  height: "100%",
+globalStyle("body", {
+  margin: 0,
+  minBlockSize: "100svh",
+  display: "grid",
+  gridTemplateRows: "auto 1fr auto",
   fontFamily: vars.font.sans,
   backgroundColor: vars.color.background.primary,
   color: vars.color.text.primary,
