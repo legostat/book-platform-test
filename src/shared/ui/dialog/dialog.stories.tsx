@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { userEvent, within, expect, screen } from "storybook/test";
+import { userEvent, within, expect, screen, waitFor } from "storybook/test";
 import { Button } from "@/shared/ui/button";
 import { Dialog, DialogTrigger } from "./dialog";
 
@@ -90,6 +90,8 @@ export const CloseWithButton: Story = {
     const dialog = await screen.findByRole("dialog");
     const closeBtn = within(dialog).getByRole("button", { name: "Close dialog" });
     await userEvent.click(closeBtn);
-    await expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+    );
   },
 };
