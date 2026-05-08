@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { userEvent, within, expect } from "storybook/test";
+import { userEvent, within, expect, screen } from "storybook/test";
 import { Button } from "@/shared/ui/button";
 import { Tooltip, TooltipTrigger } from "./tooltip";
 
@@ -62,7 +62,8 @@ export const ShowTooltip: Story = {
     const canvas = within(canvasElement);
     const trigger = canvas.getByRole("button");
     trigger.focus();
-    const tooltip = await canvas.findByRole("tooltip");
+    // Tooltip renders in a portal outside the canvas
+    const tooltip = await screen.findByRole("tooltip");
     await expect(tooltip).toBeInTheDocument();
   },
 };

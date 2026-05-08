@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { userEvent, within, expect } from "storybook/test";
+import { userEvent, within, expect, screen } from "storybook/test";
 import { Select, SelectItem } from "./select";
 
 const meta: Meta<typeof Select> = {
@@ -98,7 +98,8 @@ export const OpenAndSelect: Story = {
     const canvas = within(canvasElement);
     const trigger = canvas.getByRole("button");
     await userEvent.click(trigger);
-    const listbox = await canvas.findByRole("listbox");
+    // Listbox renders in a portal outside the canvas
+    const listbox = await screen.findByRole("listbox");
     await expect(listbox).toBeInTheDocument();
     const option = within(listbox).getByText("Mystery");
     await userEvent.click(option);

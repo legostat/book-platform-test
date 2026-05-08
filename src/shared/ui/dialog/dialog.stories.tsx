@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { userEvent, within, expect } from "storybook/test";
+import { userEvent, within, expect, screen } from "storybook/test";
 import { Button } from "@/shared/ui/button";
 import { Dialog, DialogTrigger } from "./dialog";
 
@@ -73,7 +73,8 @@ export const OpenDialog: Story = {
     const canvas = within(canvasElement);
     const trigger = canvas.getByRole("button", { name: "Open Dialog" });
     await userEvent.click(trigger);
-    const dialog = await canvas.findByRole("dialog");
+    // Dialog renders in a portal outside the canvas
+    const dialog = await screen.findByRole("dialog");
     await expect(dialog).toBeInTheDocument();
     const heading = within(dialog).getByRole("heading");
     await expect(heading).toHaveTextContent("Confirm action");
@@ -85,9 +86,10 @@ export const CloseWithButton: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole("button", { name: "Open Dialog" }));
-    const dialog = await canvas.findByRole("dialog");
+    // Dialog renders in a portal outside the canvas
+    const dialog = await screen.findByRole("dialog");
     const closeBtn = within(dialog).getByRole("button", { name: "Close dialog" });
     await userEvent.click(closeBtn);
-    await expect(canvas.queryByRole("dialog")).not.toBeInTheDocument();
+    await expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   },
 };

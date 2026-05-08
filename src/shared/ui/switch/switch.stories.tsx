@@ -34,8 +34,8 @@ export const Toggle: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const sw = canvas.getByRole("switch");
-    await expect(sw).toHaveAttribute("aria-checked", "false");
+    await expect(sw).not.toBeChecked();
     await userEvent.click(sw);
-    await expect(sw).toHaveAttribute("aria-checked", "true");
+    await expect(sw).toBeChecked();
   },
 };

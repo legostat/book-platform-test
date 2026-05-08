@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { userEvent, within, expect } from "storybook/test";
+import { userEvent, within, expect, screen } from "storybook/test";
 import { Button } from "@/shared/ui/button";
 import { Popover, PopoverTrigger } from "./popover";
 
@@ -74,8 +74,8 @@ export const OpenPopover: Story = {
     const canvas = within(canvasElement);
     const trigger = canvas.getByRole("button");
     await userEvent.click(trigger);
-    // Popover is rendered in a portal but within the document
-    const popoverText = await canvas.findByText("Pro tip");
+    // Popover renders in a portal outside the canvas
+    const popoverText = await screen.findByText("Pro tip");
     await expect(popoverText).toBeInTheDocument();
   },
 };

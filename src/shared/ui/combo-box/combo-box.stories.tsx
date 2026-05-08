@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { userEvent, within, expect } from "storybook/test";
+import { userEvent, within, expect, screen } from "storybook/test";
 import { ComboBox, ComboBoxItem } from "./combo-box";
 
 const meta: Meta<typeof ComboBox> = {
@@ -80,7 +80,8 @@ export const TypeAndFilter: Story = {
     const canvas = within(canvasElement);
     const input = canvas.getByRole("combobox");
     await userEvent.type(input, "Tol");
-    const listbox = await canvas.findByRole("listbox");
+    // Listbox renders in a portal outside the canvas
+    const listbox = await screen.findByRole("listbox");
     const option = within(listbox).getByText("Leo Tolstoy");
     await expect(option).toBeInTheDocument();
     await userEvent.click(option);
