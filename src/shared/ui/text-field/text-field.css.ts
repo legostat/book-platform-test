@@ -9,9 +9,10 @@ export const fieldRoot = style({
 });
 
 export const label = style({
-  fontSize: tokens.fontSize.sm,
-  fontWeight: "500",
+  fontSize: tokens.fontSize.lg,
+  fontWeight: "600",
   color: vars.color.text.secondary,
+  fontStyle: "oblique",
   lineHeight: tokens.lineHeight.normal,
   selectors: {
     "[data-required] &::after": {
@@ -28,7 +29,7 @@ export const inputWrapper = style({
   width: "100%",
   borderRadius: tokens.borderRadius.lg,
   border: `1px solid ${vars.color.border.neutral}`,
-  backgroundColor: vars.color.background.elevated,
+  backgroundColor: vars.color.background.primary,
   transition: "border-color 0.15s ease, box-shadow 0.15s ease",
   selectors: {
     "[data-focus-within] &": {
@@ -63,7 +64,7 @@ export const input = style({
 });
 
 export const description = style({
-  fontSize: tokens.fontSize.xs,
+  fontSize: tokens.fontSize.sm,
   color: vars.color.text.secondary,
   lineHeight: tokens.lineHeight.normal,
 });
